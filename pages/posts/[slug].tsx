@@ -42,7 +42,6 @@ const Post = ({post}) => {
         })}
         <div className='mt-10 font-medium'>
             <ReactMarkdown 
-                children={post.markdown}
                 components={{
                 code({node, inline, className, children}) {
                     const match = /language-(\w+)/.exec(className || '')
@@ -60,7 +59,9 @@ const Post = ({post}) => {
                     )
                 }
                 }}
-            ></ReactMarkdown>
+            >
+                children={post.markdown}
+            </ReactMarkdown>
             <Link href="/">
                 <span className='pd-20 block mt-3 mb-3'>Home</span>
             </Link>
